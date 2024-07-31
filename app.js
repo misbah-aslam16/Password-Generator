@@ -1,25 +1,15 @@
-// script.js
-function generatePassword() {
-    const length = 12;
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
-    let password = "";
-    for (let i = 0, n = charset.length; i < length; ++i) {
-        password += charset.charAt(Math.floor(Math.random() * n));
-    }
-    document.getElementById("password").value = password;
-}
-let inputSlider = document.getElementById("inputSlider");
-let sliderValue = document.getElementById("sliderValue");
-let passBox = document.getElementById("passBox");
-let lowercase = document.getElementById("lowercase");
-let uppercase = document.getElementById("uppercase");
-let numbers = document.getElementById("numbers");
-let symbols = document.getElementById("symbols");
-let genBtn = document.getElementById("genBtn");
-let copyIcon = document.getElementById("copyIcon");
+
+var inputSlider = document.getElementById("inputSlider");
+var sliderValue = document.getElementById("sliderValue");
+var passBox = document.getElementById("passBox");
+var lowercase = document.getElementById("lowercase");
+var uppercase = document.getElementById("uppercase");
+var numbers = document.getElementById("numbers");
+var symbols = document.getElementById("symbols");
+var genBtn = document.getElementById("genBtn");
+var copyIcon = document.getElementById("copyIcon");
 
 
-// Showing input slider value 
 sliderValue.textContent = inputSlider.value;
 inputSlider.addEventListener('input', ()=>{
     sliderValue.textContent = inputSlider.value;
@@ -29,15 +19,15 @@ genBtn.addEventListener('click', ()=>{
     passBox.value = generatePassword();
 })
 
-let lowerChars = "abcdefghijklmnopqrstuvwxyz";
-let upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let allNumbers = "0123456789";
-let allSymbols = "~!@#$%^&*"; 
+var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var allNumbers = "0123456789";
+var allSymbols = "~!@#$%^&*"; 
 
-// Function to generate Password
+
 function generatePassword(){
-    let genPassword = "";
-    let allChars = "";
+    var genPassword = "";
+    var allChars = "";
 
     allChars  += lowercase.checked ? lowerChars : "";
     allChars  += uppercase.checked ? upperChars : "";
@@ -68,6 +58,7 @@ copyIcon.addEventListener('click', ()=>{
         setTimeout(()=>{
             copyIcon.innerHTML = "content_copy";
             copyIcon.title = "";
-        }, 3000)
+            passBox.value = "";
+        }, 2000)
     }
 });
